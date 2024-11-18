@@ -3,15 +3,123 @@
   [
     {
       "id": 0,
-      "title": "item1",
-      "description": "test description",
+      "title": "Green Gem",
+      "description": "This green gem will unlock the powers of your dreams. With certified Magical-Plastic construction, this gem has unrivaled power. Manufactured by Target.",
       "images": ["https://images.stockcake.com/public/4/c/8/4c83e5ea-2a5e-44e4-b2b9-c91168a5b365_large/mystical-green-gem-stockcake.jpg"],
       "price": 5.0,
       "reviews": [
         {
-          "username": "test user",
-          "review": "test review",
+          "username": "Goblin",
+          "review": "Love this.",
           "score": 4.5
+        },
+        {
+          "username": "Gnome",
+          "review": "Hate this.",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Myth Stone Staff",
+      "description": "Sleep Soundly, this staff will keep you protected at all times. It has thousands of possible spells to choose from. Manufactured by TEMU.",
+      "images": ["https://i.etsystatic.com/17800132/r/il/1f218b/3340423217/il_1080xN.3340423217_42b4.jpg"],
+      "price": 0.05,
+      "reviews": [
+        {
+          "username": "skeleton wizard",
+          "review": "I was a normal wizard before I bought this",
+          "score": 1.5
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Magical Skull",
+      "description": "With this Skull, you can rest soundly, or make your enemies rest forever. Created with a fair-trade human soul. Manufactured by Raytheon.",
+      "images": ["https://content.instructables.com/FHB/XPM2/K28Z99YJ/FHBXPM2K28Z99YJ.png"],
+      "price": 499.99,
+      "reviews": [
+        {
+          "username": "The Lich",
+          "review": "Works perfectly. Shipped extremely fast.",
+          "score": 5.0
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Mystery Scroll",
+      "description": "Contains one mystery spell out of 1000+ choices. Manufactered by TheBeast.",
+      "images": ["https://i.ytimg.com/vi/gWus9xANt1A/hqdefault.jpg"],
+      "price": 12.99,
+      "reviews": [
+        {
+          "username": "The Beast",
+          "review": "I got a really good spell. WOW!!!!!!",
+          "score": 5.0
+        },
+        {
+          "username": "Goblin",
+          "review": "It's blank. Nice quality paper though",
+          "score": 1.5
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Potion of Sleep",
+      "description": "A potion that can send any creature of any size into an immediate slumber. Manufactered by Pfizer.",
+      "images": ["https://m.media-amazon.com/images/I/61AcvCwMO1L.jpg"],
+      "price": 5.99,
+      "reviews": [
+        {
+          "username": "Great Wizard AL",
+          "review": "Mixed this into my elixir. Good stuff.",
+          "score": 4.5
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Amulet of Fire",
+      "description": "Contains a fire gem rated to heat up to 500°C or 932°F. Manufactured by Wizard's Club.",
+      "images": ["https://i.etsystatic.com/17933716/r/il/786fd6/4348477244/il_570xN.4348477244_c8nm.jpg"],
+      "price": 4999.99,
+      "reviews": [
+        {
+          "username": "Great Wizard AL",
+          "review": "This amulet burned down my house. Just in time!!",
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Skeleton Minion",
+      "description": "Skeleton Minions are designed to serve even the toughest of jobs. Created with real Warlock Magic, they will last 2 years before the necromancy must be renewed. Manufactured by WarLocks LLC.",
+      "images": ["https://cl-drupal.orientaltrading.com/sites/default/files/projects/tile/desktop/2x/diy-knight-skeleton-card.jpg"],
+      "price": 29.99,
+      "reviews": [
+        {
+          "username": "Ancient Ghost Man",
+          "review": "These people still won't give me my body back.",
+          "score": 0.5
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Illusory Dragon",
+      "description": "This Dragon is not real. Manufactured by TEMU",
+      "images": ["https://m.media-amazon.com/images/I/7199oXnoNzL.jpg"],
+      "price": 1.00,
+      "reviews": [
+        {
+          "username": "The Dragonborn",
+          "review": "yeah this sucks.",
+          "score": 1.5
         }
       ]
     }
