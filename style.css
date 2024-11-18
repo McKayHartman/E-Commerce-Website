@@ -1,3 +1,4 @@
+/* colors */
 :root{
     --bgColor: #E8BCB9;
     --darkPurple: #432E54;
@@ -6,6 +7,11 @@
 }
 
 html{
+    background-color: var(--bgColor);
+}
+
+body{
+    margin: 10px;
     background-color: var(--bgColor);
 }
 
@@ -18,3 +24,25 @@ html{
 .navbar-custom .nav-link{
     color: var(--pink);
 }
+.grid-container{
+    background-color: var(--bgColor);
+}
+
+.card{
+    background-color: var(--lightPurple)!important;
+    border-color: var(--bgColor)!important;
+    border-radius: 10px!important;
+    color: var(--pink)!important;
+}
+
+/* grid functionality */
+.grid-container{
+    display: grid;
+    column-gap: 20px;
+    row-gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    padding: 5%;
+
+}
+
