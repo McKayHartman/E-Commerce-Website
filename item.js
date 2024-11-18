@@ -15,9 +15,15 @@ fetch("./items.json").then((response) =>
     // fill in each review
     item.reviews.forEach((review) => {
         $("#reviews").append(`
-            <p>${review.username}</p>
-            <p>${review.review}</p>
-            <p>${getStars(review.score)}</p>`)
+            <div class="card">
+                    <div class="card-header">
+                        ${review.username}
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">${getStars(review.score)}</h5>
+                      <p class="card-text">${review.review}</p>
+                    </div>
+            </div>`)
     });
 
 

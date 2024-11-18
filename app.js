@@ -4,10 +4,11 @@ fetch("./items.json").then((response) =>
     const items = (json.items)
     console.log(items);
 
+    //
     items.forEach((item, index) => {
         $("#itemgrid").append(`
             <div class="grid item card" style="width: 18rem;">
-                    <img class="card-img-top" style="width: 18rem; height:18rem;" src="${item.images[0]}" alt="${item.title}">
+                    <a href="${'./item.html?item=' + index}"><img class="card-img-top" style="height:18rem;" src="${item.images[0]}" alt="${item.title}"></a>
                     <div class="card-body">
                       <a href="${'./item.html?item=' + index}" class="card-link">${item.title}</a>
                       <p class="card-text">$${item.price.toFixed(2)}</p>
