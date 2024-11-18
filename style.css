@@ -5,6 +5,10 @@
     --lightPurple: #4B4376;
     --pink: #AE445A;
 }
+@font-face {
+    font-family: 'WizardFont';
+    src: url("./Bokor/Bokor-Regular.ttf");
+}
 
 html{
     background-color: var(--bgColor);
@@ -13,6 +17,9 @@ html{
 body{
     margin: 10px;
     background-color: var(--bgColor);
+    font-family: 'WizardFont';
+    color: var(--darkPurple);
+    
 }
 
 .navbar-custom{
@@ -23,6 +30,9 @@ body{
 .navbar-custom .navbar-brand,
 .navbar-custom .nav-link{
     color: var(--pink);
+}
+.navbar-brand{
+    font-family: 'WizardFont';
 }
 .grid-container{
     background-color: var(--bgColor);
@@ -57,4 +67,6 @@ body{
     row-gap: 30px;
     grid-template-columns: 1fr 1fr;
     padding: 5%;
+    font-family: 'WizardFont';
+    color: var(--darkPurple);
 }
