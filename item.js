@@ -17,11 +17,16 @@ fetch("./items.json").then((response) =>
         $("#reviews").append(`
             <p>${review.username}</p>
             <p>${review.review}</p>
-            <p>${'⭐'.repeat(Math.floor(review.score)) + ((Math.ceil(review.score % 1) >= 1) ? '½' : '')}</p>`)
-    })
+            <p>${getStars(review.score)}</p>`)
+    });
 
 
 
 
   }));
 
+function getStars(score)
+{
+    return ('⭐'.repeat(Math.floor(score)) + 
+            ((Math.round(score % 1) >= 1) ? '½' : ''));
+}
