@@ -1,0 +1,13 @@
+{
+  "title": "item1",
+  "description": "test description",
+  "images": ["https://images.stockcake.com/public/4/c/8/4c83e5ea-2a5e-44e4-b2b9-c91168a5b365_large/mystical-green-gem-stockcake.jpg"],
+  "price": 5.0,
+  "reviews": [
+    {
+      "username": "guy",
+      "review": "0",
+      "score": 0.0
+    }
+  ]
+}
