@@ -35,6 +35,11 @@ body{
     color: var(--pink)!important;
 }
 
+.card .card-link{
+    color: var(--pink);
+    font-size: 140%;
+}
+
 /* grid functionality */
 .grid-container{
     display: grid;
@@ -43,6 +48,5 @@ body{
     grid-template-columns: repeat(4, 1fr);
     place-items: center;
     padding: 5%;
-
 }
 
