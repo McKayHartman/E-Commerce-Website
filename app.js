@@ -4,6 +4,7 @@ fetch("./items.json").then((response) =>
     const items = (json.items)
     console.log(items);
 
+    //
     items.forEach((item, index) => {
         $("#itemgrid").append(`
             <div class="grid item card" style="width: 18rem;">
