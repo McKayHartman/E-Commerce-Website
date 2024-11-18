@@ -1,0 +1,20 @@
+:root{
+    --bgColor: #E8BCB9;
+    --darkPurple: #432E54;
+    --lightPurple: #4B4376;
+    --pink: #AE445A;
+}
+
+html{
+    background-color: var(--bgColor);
+}
+
+.navbar-custom{
+    background-color: var(--darkPurple);
+    color: var(--pink)
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link{
+    color: var(--pink);
+}
