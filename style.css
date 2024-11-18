@@ -50,6 +50,11 @@ body{
     font-size: 140%;
 }
 
+.btn-custom{
+    background-color: var(--pink)!important;
+}
+
+
 /* grid functionality */
 .grid-container{
     display: grid;
