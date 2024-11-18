@@ -10,7 +10,7 @@ fetch("./items.json").then((response) =>
                     <img class="card-img-top" src="${item.images[0]}" alt="${item.title}">
                     <div class="card-body">
                       <a href="${'./item.html?item=' + index}" class="card-link">${item.title}</a>
-                      <p class="card-text">Item Price</p>
+                      <p class="card-text">$${item.price.toFixed(2)}</p>
                       <p class="card-text">${getStars(averageReview(item.reviews))}</p>
                     </div>
                 </div>
@@ -25,7 +25,7 @@ fetch("./items.json").then((response) =>
 function getStars(score)
 {
     return ('⭐'.repeat(Math.floor(score)) + 
-            ((Math.ceil(score % 1) >= 1) ? '½' : ''));
+            ((Math.round(score % 1) >= 1) ? '½' : ''));
 }
 
 function averageReview(reviews)

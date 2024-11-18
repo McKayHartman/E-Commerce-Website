@@ -28,5 +28,5 @@ fetch("./items.json").then((response) =>
 function getStars(score)
 {
     return ('⭐'.repeat(Math.floor(score)) + 
-            ((Math.ceil(score % 1) >= 1) ? '½' : ''));
+            ((Math.round(score % 1) >= 1) ? '½' : ''));
 }
