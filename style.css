@@ -50,3 +50,11 @@ body{
     padding: 5%;
 }
 
+.itemDisplay{
+    background-color: var(--bgColor);
+    display: grid;
+    column-gap: 20px;
+    row-gap: 30px;
+    grid-template-columns: 1fr 1fr;
+    padding: 5%;
+}
