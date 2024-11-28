@@ -1,3 +1,7 @@
+$(document).ready(function() {
+  $('#site-navbar').load('./navbar.html');
+});
+
 // fetch the items
 fetch("./items.json").then((response) =>
   response.json().then((json) => {

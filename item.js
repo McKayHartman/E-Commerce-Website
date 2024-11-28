@@ -1,3 +1,8 @@
+$(document).ready(function() {
+  $('#site-navbar').load('./navbar.html');
+});
+
+
 // get the item parameters from the URL
 const parameters = new URLSearchParams(window.location.search);
 const itemId = parameters.get("item");
