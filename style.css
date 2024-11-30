@@ -75,3 +75,16 @@ body{
     font-family: 'WizardFont';
     color: var(--darkPurple);
 }
+
+#cartContainer{
+    background-color: var(--bgColor);
+    border: solid;
+    border-color: var(--darkPurple);
+    border-width: 5px;
+}
+
+#cartItem{
+    background-color: var(--bgColor);
+    display:flex;
+    border: solid;
+}
