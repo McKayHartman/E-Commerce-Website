@@ -9,6 +9,10 @@
     font-family: 'WizardFont';
     src: url("./Bokor/Bokor-Regular.ttf");
 }
+@font-face {
+    font-family: 'Metamorphous';
+    src: url("./Metamorphous/Metamorphous-Regular.ttf");
+}
 
 html{
     background-color: var(--bgColor);
@@ -74,4 +78,13 @@ body{
     padding: 5%;
     font-family: 'WizardFont';
     color: var(--darkPurple);
+}
+
+.itemName{
+    font-family: 'Metamorphous';
+    color: var(--pink);
+    font-size: large;
+}
+.itemName:hover{
+    color: var(--bgColor);
 }
