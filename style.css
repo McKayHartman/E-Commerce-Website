@@ -58,6 +58,14 @@ body{
     background-color: var(--pink)!important;
 }
 
+.itemName{
+    font-family: 'Metamorphous';
+    color: var(--pink);
+    font-size: large;
+}
+.itemName:hover{
+    color: var(--bgColor);
+}
 
 /* grid functionality */
 .grid-container{
@@ -80,6 +88,18 @@ body{
     color: var(--darkPurple);
 }
 
+
+
+#cartContainer{
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--bgColor);
+    border: solid;
+    border-color: var(--darkPurple);
+    border-width: 5px;
+}
+
 .itemName{
     font-family: 'Metamorphous';
     color: var(--pink);
@@ -87,4 +107,38 @@ body{
 }
 .itemName:hover{
     color: var(--bgColor);
+
+
+#cartItem{
+    background-color: var(--bgColor);
+    display: grid;
+
+    border: solid;
+    column-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+
+}
+
+#thumbnailImage{
+    width: 25%;
+}
+
+#itemDeleteButton{
+    background-color: var(--darkPurple);
+    color: var(--pink);
+}
+
+#itemIncreaseQuantityButton{
+    background-color: var(--darkPurple);
+    color: var(--pink);
+}
+
+#itemDecreaseQuanitityButton{
+    background-color: var(--darkPurple);
+    color: var(--pink);
+}
+
+#itemInfo{
+    display: flex;
 }
