@@ -1,3 +1,7 @@
+$(document).ready(function() {
+  $('#site-navbar').load('./navbar.html');
+});
+
 // fetch the items
 fetch("./items.json").then((response) =>
   response.json().then((json) => {
@@ -10,7 +14,7 @@ fetch("./items.json").then((response) =>
             <div class="grid item card" style="width: 18rem;">
                     <a href="${'./item.html?item=' + index}"><img class="card-img-top" style="height:18rem;" src="${item.images[0]}" alt="${item.title}"></a>
                     <div class="card-body">
-                      <a href="${'./item.html?item=' + index}" class="card-link">${item.title}</a>
+                      <a href="${'./item.html?item=' + index}" class="itemName">${item.title}</a>
                       <p class="card-text">$${item.price.toFixed(2)}</p>
                       <p class="card-text">${getStars(averageReview(item.reviews))}</p>
                     </div>

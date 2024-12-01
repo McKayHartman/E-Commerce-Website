@@ -9,6 +9,10 @@
     font-family: 'WizardFont';
     src: url("./Bokor/Bokor-Regular.ttf");
 }
+@font-face {
+    font-family: 'Metamorphous';
+    src: url("./Metamorphous/Metamorphous-Regular.ttf");
+}
 
 html{
     background-color: var(--bgColor);
@@ -84,6 +88,8 @@ body{
     color: var(--darkPurple);
 }
 
+
+
 #cartContainer{
     display: flex;
     flex-direction: column;
@@ -93,6 +99,7 @@ body{
     border-color: var(--darkPurple);
     border-width: 5px;
 }
+
 .itemName{
     font-family: 'Metamorphous';
     color: var(--pink);
@@ -100,6 +107,8 @@ body{
 }
 .itemName:hover{
     color: var(--bgColor);
+
+
 #cartItem{
     background-color: var(--bgColor);
     display: grid;
