@@ -54,6 +54,14 @@ body{
     background-color: var(--pink)!important;
 }
 
+.itemName{
+    font-family: 'Metamorphous';
+    color: var(--pink);
+    font-size: large;
+}
+.itemName:hover{
+    color: var(--bgColor);
+}
 
 /* grid functionality */
 .grid-container{
@@ -85,7 +93,13 @@ body{
     border-color: var(--darkPurple);
     border-width: 5px;
 }
-
+.itemName{
+    font-family: 'Metamorphous';
+    color: var(--pink);
+    font-size: large;
+}
+.itemName:hover{
+    color: var(--bgColor);
 #cartItem{
     background-color: var(--bgColor);
     display: grid;
