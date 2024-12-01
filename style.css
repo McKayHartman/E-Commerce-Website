@@ -77,6 +77,9 @@ body{
 }
 
 #cartContainer{
+    display: flex;
+    flex-direction: column;
+
     background-color: var(--bgColor);
     border: solid;
     border-color: var(--darkPurple);
@@ -85,6 +88,34 @@ body{
 
 #cartItem{
     background-color: var(--bgColor);
-    display:flex;
+    display: grid;
+
     border: solid;
+    column-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+
+}
+
+#thumbnailImage{
+    width: 25%;
+}
+
+#itemDeleteButton{
+    background-color: var(--darkPurple);
+    color: var(--pink);
+}
+
+#itemIncreaseQuantityButton{
+    background-color: var(--darkPurple);
+    color: var(--pink);
+}
+
+#itemDecreaseQuanitityButton{
+    background-color: var(--darkPurple);
+    color: var(--pink);
+}
+
+#itemInfo{
+    display: flex;
 }
