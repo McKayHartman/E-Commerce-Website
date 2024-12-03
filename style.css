@@ -108,7 +108,7 @@ body{
 .itemName:hover{
     color: var(--bgColor);
 
-
+}
 #cartItem{
     background-color: var(--bgColor);
     display: grid;
@@ -141,4 +141,24 @@ body{
 
 #itemInfo{
     display: flex;
+}
+
+.wishlistContainer{
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--bgColor);
+    border: solid;
+    border-color: var(--darkPurple);
+    border-width: 5px;
+}
+
+#wishlistItem{
+    background-color: var(--bgColor);
+    display: grid;
+
+
+    column-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
 }
