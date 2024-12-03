@@ -110,7 +110,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Illusory Dragon",
       "description": "This Dragon is not real. Manufactured by TEMU",
       "images": ["https://m.media-amazon.com/images/I/7199oXnoNzL.jpg"],
@@ -120,6 +120,67 @@
           "username": "The Dragonborn",
           "review": "yeah this sucks.",
           "score": 1.5
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Real Creature",
+      "description": "We will summon a real creature at any position you desire! We have no responsibility over what this creature does. Distributed by Martin's Heed of Warlocks.",
+      "images": ["https://i.ytimg.com/vi/nKte92jc8L8/maxresdefault.jpg"],
+      "price": 59.99,
+      "reviews": [
+        {
+          "username": "Evil Wizard",
+          "review": "Great prank for some saturday afternoon fun!",
+          "score": 4.5
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Bomb",
+      "description": "Manufactured by Tesla.",
+      "images": ["https://www.darkknightarmoury.com/wp-content/uploads/2022/05/RW-3701346.jpg"],
+      "price": 9.99,
+      "reviews": [
+        {
+          "username": "Good Wizard",
+          "review": "I see no use for this filth. A bomb has no place in wizardry.",
+          "score": 0.5
+        },
+        {
+          "username": "Evil Wizard",
+          "review": "I see one use for this",
+          "score": 5.0
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "The Jade Stones",
+      "description": "These stones hold the key to untamed magical power. Do not use in the prescence of anyone you wish to live another day. Manufactured by Huawei.",
+      "images": ["https://images.liverpoolmuseums.org.uk/styles/dynamic_medium/public/2020-12/magical-gem-stones.jpg"],
+      "price": 3950.00,
+      "reviews": [
+        {
+          "username": "The Reanimated Emperor",
+          "review": "Thank you for these. I have been given great joy.",
+          "score": 4.0
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "The Bulwark's Bicycle",
+      "description": "This item creates propulsion only through the power of the body of the rider. ",
+      "images": ["https://d1735p3aqhycef.cloudfront.net/topview_blog/thumbnail_5e017a2d91051ace25984b5ab0b3461e.jpg"],
+      "price": 89.99,
+      "reviews": [
+        {
+          "username": "The Air Elemental",
+          "review": "This did NOT WORK.",
+          "score": 0.5
         }
       ]
     }
