@@ -36,7 +36,7 @@ $(document).ready(function()
                 <h4 id="itemPrice">$${currentItem.price}</h4>
             </div>
             <div id="itemActions" class="cartSection">
-                <button onclick="removeItemFromCart(event)" class="itemDeleteButton btn-custom" data-index="${currentItem.id}" type="button">Delete</button>
+                <button onclick="removeItemFromWishlist(event)" class="itemDeleteButton btn-custom" data-index="${currentItem.id}" type="button">Delete</button>
                 <button onclick="addItemToCart(event)" class="addItemToCartButton btn-custom" data-index="${currentItem.id}" type="button">Add to Cart</button>
             </div>
         </div>
@@ -46,8 +46,36 @@ $(document).ready(function()
 
 });});
 
+// constructor function to create an cart item that
+// stores the item and its quantity;
+// later used to add them to an array of items
+function cartItem(identifier)
+{
+  this.identifier = identifier;
+  this.quantity = 1;
+}
+
+function addItemToCart(event)
+{
+    let item = event.target;
+    console.log(item);
+    let itemId = item.getAttribute('data-index');
+    console.log(itemId);
+
+    const cartArray = JSON.parse(localStorage.getItem("cartArray")) || [];
+    // add the item to the array
+    cartArray.push(new cartItem(itemId));
+    // store the array back in local storage
+    localStorage.setItem("cartArray", JSON.stringify(cartArray));
+    // DEBUG
+    console.log("added item to cart array");
+    console.log("Cart array: ", cartArray);
+  
+    removeItemFromWishlist(event);
+}
+
 // function to remove an item from the cart
-function removeItemFromCart(event)
+function removeItemFromWishlist(event)
 {
 
     let item = event.target;
@@ -69,5 +97,3 @@ function removeItemFromCart(event)
         }
     });
 }
-
-
