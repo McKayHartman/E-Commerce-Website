@@ -138,6 +138,10 @@ $(document).ready(function(){
     localStorage.setItem("wishlistArray", JSON.stringify([]));
     console.log("wishlistArray initialzied");
   }
+  // init cart total
+  if(!localStorage.getItem("cartTotal")){
+    localStorage.setItem("cartTotal", JSON.stringify([]));
+  }
   
   // DEBUG
   const cartArray = JSON.parse(localStorage.getItem("cartArray")) || [];

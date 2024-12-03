@@ -10,6 +10,7 @@ $(document).ready(function(){
 // retrive arrays from local storage
 const cartArray = JSON.parse(localStorage.getItem("cartArray")) || [];
 const wishlistArray = JSON.parse(localStorage.getItem("wishlistArray")) || [];
+let cartTotal = JSON.parse(localStorage.getItem("cartTotal"));
 
 // Using the array from local storage,
 // dynamically populate the cart with items from the array
@@ -41,16 +42,25 @@ $(document).ready(function()
                 <p id="itemQuantity">Quantity: ${element.quantity}</p>
             </div>
             <div id="itemActions" class="cartSection">
-                <button onclick="removeItemFromCart(event)" class="itemDeleteButton" data-index="${currentItem.id}" type="button">Delete</button>
-                <button onclick="increaseQuantity(event)" class="itemIncreaseQuantityButton btn" data-index="${currentItem.id}" type="button">+1</button>
-                <button onclick="decreaseQuantity(event)" class="itemDecreaseQuanitityButton btn" data-index="${currentItem.id}" type="button">-1</button>
+                <button onclick="removeItemFromCart(event)" class="itemDeleteButton btn-custom" data-index="${currentItem.id}" type="button">Delete</button>
+                <button onclick="increaseQuantity(event)" class="itemIncreaseQuantityButton btn-custom" data-index="${currentItem.id}" type="button">+1</button>
+                <button onclick="decreaseQuantity(event)" class="itemDecreaseQuanitityButton btn-custom" data-index="${currentItem.id}" type="button">-1</button>
             </div>
         </div>
 
         `)
+        console.log("currentItem.price", currentItem.price, "* element.quantity: ", element.quantity);
+        cartTotal += currentItem.price * element.quantity;
+        localStorage.setItem("cartTotal", JSON.stringify(cartTotal));
     }));
 
 });});
+// add total to end
+$(document).ready(function()
+{
+    console.log("cartTotal: ", cartTotal);
+    $(".cartTotalDisplay").append("<h3>Total: "+ cartTotal +"</h3>");
+});
 
 // function to remove an item from the cart
 function removeItemFromCart(event)

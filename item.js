@@ -115,10 +115,15 @@ function addToWishlist(item)
 {
   const wishlistArray = JSON.parse(localStorage.getItem("wishlistArray")) || [];
 
-  // add the item to the array
-  wishlistArray.push(item);
-  // store the array
-  localStorage.setItem("wishlistArray", JSON.stringify(wishlistArray));
+  // check if its in the array
+  if(!wishlistArray.includes(item))
+  {
+    // add the item to the array
+    wishlistArray.push(item);
+    // store the array
+    localStorage.setItem("wishlistArray", JSON.stringify(wishlistArray));
+  }
+  
   // DEBUG
   console.log("added item to wishlist array");
   console.log("Wishlist array: ", wishlistArray);
