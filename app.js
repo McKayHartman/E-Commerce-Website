@@ -1,6 +1,6 @@
 const sortTypes = new Set(["default", "highPrice", "lowPrice", "lowRating", "highRating", "alphabetical"]);
 const parameters = new URLSearchParams(window.location.search);
-const page = parameters.get("page") ?? 0;
+const page = parameters.has("page") ? parameters.get("page") : 1;
 console.log("page: " + page);
 const itemsPerPage = 8;
 
@@ -14,21 +14,9 @@ fetch("./items.json").then((response) =>
     const items = (json.items)
     console.log(items);
 
-    displayItems(items);
-
-
-}));
-
-function sortItems(sortType)
-{
-  console.log("sorting items!")
-  fetch("./items.json").then((response) =>
-    response.json().then((json) => {
-      const items = (json.items)
-
-      if (sortTypes.has(sortType))
-      {
-        switch(sortType)
+    if(parameters.get("sort"))
+    {
+      switch(parameters.get("sort"))
         {
           case "default":
             items.sort((a, b) => a.id - b.id);
@@ -54,13 +42,24 @@ function sortItems(sortType)
             items.sort((a, b) =>  a.title.localeCompare(b.title));
             break;
         }
-        $("#itemgrid").empty();
-        displayItems(items);
-      }
-      
-      
-  }));
+    }
 
+    displayItems(items);
+
+    // get page number buttons
+    for (i = Math.max(page - 3, 1); i < Math.min(page + 3, (Math.ceil((items.length) / 8))); i++)
+    {
+      $("#page-number-buttons").append(`<button class='btn btn-light mx-1'>${i}</button>`);
+    }
+    $("#page-number-buttons").append(`<button class='btn btn-light mx-1'>${Math.ceil((items.length) / 8)}</button>`);
+    
+
+}));
+
+function sortItems(sortType)
+{
+  window.location.replace(window.location.href.split('/')[0] + `/?sort=${sortType}`);
+      
 }
 
 function getStars(score)
@@ -77,7 +76,7 @@ function averageReview(reviews)
 
 function displayItems(items)
 {
-  items.slice(itemsPerPage * page, itemsPerPage * (page + 1))
+  items.slice(itemsPerPage * (page - 1), itemsPerPage * (page))
     .forEach((item) => {
       $("#itemgrid").append(`
           <div class="grid item card" style="width: 18rem;">
@@ -89,7 +88,30 @@ function displayItems(items)
                   </div>
               </div>
           `)
-})
+})}
+
+function nextPage()
+{
+  fetch("./items.json").then((response) =>
+    response.json().then((json) => {
+      const items = (json.items)
+      if (page <= Math.floor((items.length) / 8))
+      {
+          window.location.replace(window.location.href.split('/')[0] + '?' +
+            `sort=${parameters.get('sort') ?? 'default'}&` +
+            `page=${(parseInt(page) + 1)}`)
+      }
+  }));
+}
+
+function prevPage()
+{
+  if (page > 1)
+    {
+        window.location.replace(window.location.href.split('/')[0] + '?' +
+          `sort=${parameters.get('sort') ?? 'default'}&` +
+          `page=${(parseInt(page) - 1)}`)
+    }
 }
 
 //create arrays in local storage
