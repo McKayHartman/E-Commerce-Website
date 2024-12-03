@@ -12,7 +12,13 @@ $(document).ready(function() {
       $("#title").html(item.title);
       $("#description").html(item.description);
       $("#mainImage").attr( "src", item.images[0]);
+      $("#zoomImage").attr( "src", item.images[0]);
       $("#price").html(`\$${item.price}`);
+
+      // fill in each image
+      item.images.forEach((image) => {
+        $("#allImages").append(`<img src="${image}" class="col img-fluid p-1" onmouseover="swapImage('${image}')">`)
+      })
 
       // fill in each review
       item.reviews.forEach((review) => {
@@ -35,12 +41,36 @@ $(document).ready(function() {
 
 });
 
+function zoomInImage()
+{
+  $('#zoomImage').animate({
+    opacity: '100%',
+    width: '100%',
+    height: '100%',
+  }, 100 )
+}
 
+function zoomOutImage()
+{
+  $('#zoomImage').animate({
+    opacity: '0%',
+    width: '1%',
+    height: '1%',
+  }, 100 )
+}
 
 function getStars(score)
 {
     return ('⭐'.repeat(Math.floor(score)) + 
             ((Math.round(score % 1) >= 1) ? '½' : ''));
+}
+
+function swapImage(image)
+{
+  // swap the image in the #mainImage and #zoomImage
+  $('#mainImage').attr('src', image );
+  $('#zoomImage').attr('src', image );
+
 }
 
 // constructor function to create an cart item that
