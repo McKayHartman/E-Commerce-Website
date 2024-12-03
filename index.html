@@ -14,6 +14,19 @@
 
         <!-- card grid-->
         <main>
+            <div id="sortSelectorContainer" class="d-flex flex-row-reverse justify-content-center">
+              <select id="sort" 
+                class="form-control w-25 my-2" 
+                onchange="sortItems(this.options[this.selectedIndex].value)">
+                <option disabled selected value="select">Sort:</option>
+                <option value="highPrice">Price, High to Low</option>
+                <option value="lowPrice">Price, Low to High</option>
+                <option value="highRating">Review, High to Low</option>
+                <option value="lowRating">Review, Low to High</option>
+                <option value="alphabetical">Alphabetical</option>
+                <option value="default">Default</option>
+              </select>
+            </div>
             <div class="grid-container" id="itemgrid">
                   
             </div>

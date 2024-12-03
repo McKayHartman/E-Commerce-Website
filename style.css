@@ -109,6 +109,11 @@ body{
     color: var(--bgColor);
 
 }
+
+#sortSelectorContainer{
+    background-color: var(--bgColor);
+}
+
 #cartItem{
     background-color: var(--bgColor);
     display: grid;
