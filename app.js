@@ -38,3 +38,31 @@ function averageReview(reviews)
     return ((reviews.map(review => review.score)
             .reduce((total, value) => total + value)) / reviews.length);
 }
+
+//create arrays in local storage
+$(document).ready(function(){
+
+  // Initalize the arrays
+  if(!localStorage.getItem("cartArray")){
+    // cart array will store cart objects that have
+    // the unique itemId and a quantity
+    localStorage.setItem("cartArray", JSON.stringify([]));
+    console.log("cartArray initialized");
+  }
+
+  if(!localStorage.getItem("wishlistArray")){
+    // wishlist array does not need quantity,
+    // so it can be an array of id numbers
+    localStorage.setItem("wishlistArray", JSON.stringify([]));
+    console.log("wishlistArray initialzied");
+  }
+  
+  // DEBUG
+  const cartArray = JSON.parse(localStorage.getItem("cartArray")) || [];
+  const wishlistArray = JSON.parse(localStorage.getItem("wishlistArray")) || [];
+
+  console.log("local storage checked");
+  console.log("Cart array at home page:", cartArray);
+  console.log("wishlist array at home page:", wishlistArray);
+});
+

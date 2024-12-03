@@ -35,10 +35,71 @@ $(document).ready(function() {
 
 });
 
-
+// DEBUG
+$(document).ready(function(){
+  console.log("itemId: ", itemId);
+});
 
 function getStars(score)
 {
     return ('⭐'.repeat(Math.floor(score)) + 
             ((Math.round(score % 1) >= 1) ? '½' : ''));
 }
+
+let itemId = 1;
+// constructor function to create an cart item that
+// stores the item and its quantity;
+// later used to add them to an array of items
+function cartItem(identifier)
+{
+  this.identifier = identifier;
+  this.quantity = 1;
+}
+
+
+// function that adds an item to the locally
+// stored cartArray
+function addToCart(item)
+{
+  const cartArray = JSON.parse(localStorage.getItem("cartArray")) || [];
+  // add the item to the array
+  cartArray.push(new cartItem(item));
+  // store the array back in local storage
+  localStorage.setItem("cartArray", JSON.stringify(cartArray));
+  // DEBUG
+  console.log("added item to cart array")
+  console.log("Cart array: ", cartArray);
+}
+
+// add event listener
+$(document).ready(function(){
+  $('#addToCartBtn').on('click', function()
+  {
+    addToCart(itemId);
+    
+  });
+});
+
+// function that adds an item to the
+// locally stored wishlistArray
+function addToWishlist(item)
+{
+  const wishlistArray = JSON.parse(localStorage.getItem("wishlistArray")) || [];
+
+  // add the item to the array
+  wishlistArray.push(item);
+  // store the array
+  localStorage.setItem("wishlistArray", JSON.stringify(wishlistArray));
+  // DEBUG
+  console.log("added item to wishlist array");
+  console.log("Wishlist array: ", wishlistArray);
+}
+
+// add event listener
+$(document).ready(function(){
+  $('#addToWishlistBtn').on('click', function()
+  {
+    addToWishlist(itemId);
+  });
+});
+
