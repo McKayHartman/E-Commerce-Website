@@ -169,6 +169,20 @@ body{
     place-items: center;
 }
 
-.cartTotalDisplay{
+
+.infoInput{
+    background-color:  var(--bgColor);
+}
+
+.paymentInput{
+    background-color: var(--bgColor);
+}
+.checkout-box{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bgColor);
+}
+
+.totalDisplay{
     background-color: var(--bgColor);
 }
