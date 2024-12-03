@@ -90,7 +90,7 @@ body{
 
 
 
-#cartContainer{
+.cartContainer{
     display: flex;
     flex-direction: column;
 
@@ -116,7 +116,7 @@ body{
     border: solid;
     column-gap: 10px;
     grid-template-columns: repeat(3, 1fr);
-    place-items: center;
+    justify-content: space-between;
 
 }
 
@@ -140,7 +140,8 @@ body{
 }
 
 #itemInfo{
-    display: flex;
+    display: grid;
+    justify-content: space-between;
 }
 
 .wishlistContainer{

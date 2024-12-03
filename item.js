@@ -35,10 +35,7 @@ $(document).ready(function() {
 
 });
 
-// DEBUG
-$(document).ready(function(){
-  console.log("itemId: ", itemId);
-});
+
 
 function getStars(score)
 {
@@ -46,7 +43,6 @@ function getStars(score)
             ((Math.round(score % 1) >= 1) ? '½' : ''));
 }
 
-let itemId = 1;
 // constructor function to create an cart item that
 // stores the item and its quantity;
 // later used to add them to an array of items
@@ -75,6 +71,9 @@ function addToCart(item)
 $(document).ready(function(){
   $('#addToCartBtn').on('click', function()
   {
+    const parameters = new URLSearchParams(window.location.search);
+    const itemId = parameters.get("item");
+
     addToCart(itemId);
     
   });
@@ -99,6 +98,8 @@ function addToWishlist(item)
 $(document).ready(function(){
   $('#addToWishlistBtn').on('click', function()
   {
+    const parameters = new URLSearchParams(window.location.search);
+    const itemId = parameters.get("item");
     addToWishlist(itemId);
   });
 });
