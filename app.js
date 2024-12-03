@@ -1,4 +1,8 @@
 const sortTypes = new Set(["default", "highPrice", "lowPrice", "lowRating", "highRating", "alphabetical"]);
+const parameters = new URLSearchParams(window.location.search);
+const page = parameters.has("page") ? parameters.get("page") : 1;
+console.log("page: " + page);
+const itemsPerPage = 8;
 
 $(document).ready(function() {
   $('#site-navbar').load('./navbar.html');
@@ -10,21 +14,9 @@ fetch("./items.json").then((response) =>
     const items = (json.items)
     console.log(items);
 
-    displayItems(items);
-
-
-}));
-
-function sortItems(sortType)
-{
-  console.log("sorting items!")
-  fetch("./items.json").then((response) =>
-    response.json().then((json) => {
-      const items = (json.items)
-
-      if (sortTypes.has(sortType))
-      {
-        switch(sortType)
+    if(parameters.get("sort"))
+    {
+      switch(parameters.get("sort"))
         {
           case "default":
             items.sort((a, b) => a.id - b.id);
@@ -50,13 +42,24 @@ function sortItems(sortType)
             items.sort((a, b) =>  a.title.localeCompare(b.title));
             break;
         }
-        $("#itemgrid").empty();
-        displayItems(items);
-      }
-      
-      
-  }));
+    }
 
+    displayItems(items);
+
+    // get page number buttons
+    for (i = Math.max(page - 3, 1); i < Math.min(page + 3, (Math.ceil((items.length) / 8))); i++)
+    {
+      $("#page-number-buttons").append(`<button class='btn btn-light mx-1' onclick='jumpToPage(${i})'>${i}</button>`);
+    }
+    $("#page-number-buttons").append(`<button class='btn btn-light mx-1' onclick='jumpToPage(${Math.ceil((items.length) / 8)})'>${Math.ceil((items.length) / 8)}</button>`);
+    
+
+}));
+
+function sortItems(sortType)
+{
+  window.location.replace(window.location.href.split('/')[0] + `/?sort=${sortType}`);
+      
 }
 
 function getStars(score)
@@ -73,18 +76,49 @@ function averageReview(reviews)
 
 function displayItems(items)
 {
-  items.forEach((item, index) => {
-    $("#itemgrid").append(`
-        <div class="grid item card" style="width: 18rem;">
-                <a href="${'./item.html?item=' + index}"><img class="card-img-top" style="height:18rem;" src="${item.images[0]}" alt="${item.title}"></a>
-                <div class="card-body">
-                  <a href="${'./item.html?item=' + index}" class="itemName">${item.title}</a>
-                  <p class="card-text">$${item.price.toFixed(2)}</p>
-                  <p class="card-text">${getStars(averageReview(item.reviews))}</p>
-                </div>
-            </div>
-        `)
-})
+  items.slice(itemsPerPage * (page - 1), itemsPerPage * (page))
+    .forEach((item) => {
+      $("#itemgrid").append(`
+          <div class="grid item card" style="width: 18rem;">
+                  <a href="${'./item.html?item=' + item.id}"><img class="card-img-top" style="height:18rem;" src="${item.images[0]}" alt="${item.title}"></a>
+                  <div class="card-body">
+                    <a href="${'./item.html?item=' + item.id}" class="itemName">${item.title}</a>
+                    <p class="card-text">$${item.price.toFixed(2)}</p>
+                    <p class="card-text">${getStars(averageReview(item.reviews))}</p>
+                  </div>
+              </div>
+          `)
+})}
+
+function nextPage()
+{
+  fetch("./items.json").then((response) =>
+    response.json().then((json) => {
+      const items = (json.items)
+      if (page <= Math.floor((items.length) / 8))
+      {
+          window.location.replace(window.location.href.split('/')[0] + '?' +
+            `sort=${parameters.get('sort') ?? 'default'}&` +
+            `page=${(parseInt(page) + 1)}`)
+      }
+  }));
+}
+
+function prevPage()
+{
+  if (page > 1)
+    {
+        window.location.replace(window.location.href.split('/')[0] + '?' +
+          `sort=${parameters.get('sort') ?? 'default'}&` +
+          `page=${(parseInt(page) - 1)}`)
+    }
+}
+
+function jumpToPage(location)
+{
+  window.location.replace(window.location.href.split('/')[0] + '?' +
+    `sort=${parameters.get('sort') ?? 'default'}&` +
+    `page=${location}`)
 }
 
 //create arrays in local storage
