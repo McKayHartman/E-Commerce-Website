@@ -70,7 +70,7 @@ function removeItemFromCart(event)
             // DEBUG
             console.log("cart array", cartArray);
             // remove element
-            $(".itemDeleteButton").find(`[data-index='${itemId}']`).closest("#cartItem").remove();
+            $(document).find(`[data-index='${itemId}']`).closest("#cartItem").remove();
         }
     });
 }
