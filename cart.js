@@ -42,8 +42,8 @@ $(document).ready(function()
             </div>
             <div id="itemActions" class="cartSection">
                 <button onclick="removeItemFromCart(event)" class="itemDeleteButton" data-index="${currentItem.id}" type="button">Delete</button>
-                <button class="itemIncreaseQuantityButton btn" type="button">+1</button>
-                <button class="itemDecreaseQuanitityButton btn" type="button">-1</button>
+                <button onclick="increaseQuantity(event)" class="itemIncreaseQuantityButton btn" data-index="${currentItem.id}" type="button">+1</button>
+                <button onclick="decreaseQuantity(event)" class="itemDecreaseQuanitityButton btn" data-index="${currentItem.id}" type="button">-1</button>
             </div>
         </div>
 
@@ -81,11 +81,43 @@ $(document).ready(function(){
         console.log("hello");
 });
 });
-// // event listener
-// $(document).ready(function(){
-//     $("#itemDeleteButton").on("click", console.log(this));
 
-//     $("#itemDeleteButton").on("click", removeItemFromCart(this.data-index));
-//     console.log("*******");
-// });
+function increaseQuantity(event){
+    let item = event.target;
+
+    let itemId = item.getAttribute('data-index');
+    console.log(itemId);
+    cartArray.forEach((item) => {
+        console.log("test");
+        if(item.identifier == itemId){
+        // increase quantity
+        item.quantity++;
+        localStorage.setItem("cartArray", JSON.stringify(cartArray));
+        console.log("Item quantity: ", item.quantity);
+        // update page
+        $(document).find(`[data-index='${itemId}']`).parent("#itemInfo").children("#itemQuantity").html("Quantity: " + item.quantity);
+        }
+        location.reload();
+        
+    });
+}
+function decreaseQuantity(event){
+    let item = event.target;
+
+    let itemId = item.getAttribute('data-index');
+    console.log(itemId);
+    cartArray.forEach((item) => {
+        console.log("test");
+        if(item.identifier == itemId){
+        // decrease quantity
+        item.quantity--;
+        localStorage.setItem("cartArray", JSON.stringify(cartArray));
+        console.log("Item quantity: ", item.quantity);
+        // update page
+        $(document).find(`[data-index='${itemId}']`).parent("#itemInfo").children("#itemQuantity").html("Quantity: " + item.quantity);
+        }
+        location.reload();
+        
+    });
+}
 
