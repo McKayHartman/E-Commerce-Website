@@ -67,6 +67,7 @@ function removeItemFromCart(event)
         if (item.identifier == itemId) {
             // remove it from the list
             cartArray.splice(index, 1);
+            localStorage.setItem("cartArray", JSON.stringify(cartArray));
             // DEBUG
             console.log("cart array", cartArray);
             // remove element
