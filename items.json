@@ -24,7 +24,7 @@
       "id": 1,
       "title": "Myth Stone Staff",
       "description": "Sleep Soundly, this staff will keep you protected at all times. It has thousands of possible spells to choose from. Manufactured by TEMU.",
-      "images": ["https://i.etsystatic.com/17800132/r/il/1f218b/3340423217/il_1080xN.3340423217_42b4.jpg"],
+      "images": ["https://i.etsystatic.com/17800132/r/il/1f218b/3340423217/il_1080xN.3340423217_42b4.jpg", "https://i0.wp.com/ivyswandsandwhimsies.com/wp-content/uploads/2023/07/Amethyst1.jpg", "https://i.etsystatic.com/17800132/r/il/1f218b/3340423217/il_1080xN.3340423217_42b4.jpg", "https://i.etsystatic.com/17800132/r/il/1f218b/3340423217/il_1080xN.3340423217_42b4.jpg"],
       "price": 0.05,
       "reviews": [
         {
@@ -126,7 +126,7 @@
     {
       "id": 8,
       "title": "Real Creature",
-      "description": "We will summon a real creature at any position you desire! We have no responsibility over what this creature does. Distributed by Martin's Heed of Warlocks.",
+      "description": "We will summon a real creature at any position you desire, We have no responsibility over what this creature does. Distributed by Warlock's Heed.",
       "images": ["https://i.ytimg.com/vi/nKte92jc8L8/maxresdefault.jpg"],
       "price": 59.99,
       "reviews": [

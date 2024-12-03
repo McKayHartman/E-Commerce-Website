@@ -14,7 +14,8 @@
 
         <div class="itemDisplay">
             <div class="mainImage">
-                <img class="img-fluid" style="width: 45vw; height: 45vw;" src="" id="mainImage">
+                <img class="img-fluid" style="width: 45vw; height: 45vw;" onclick="zoomInImage()" id="mainImage">
+                <div id="allImages" class="grid-container"></div>
             </div>
             <div class="information">
                 <h1 id="title"></h1>
@@ -28,7 +29,8 @@
                 
             </div>
         </div>    
-
+        
+        <img id="zoomImage" style="position: fixed; top:50%; left:50%; transform: translate(-50%, -50%); height:1%; width:1%; opacity: 0%;" onclick='zoomOutImage()'>
 
 
 

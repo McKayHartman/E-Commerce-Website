@@ -80,7 +80,7 @@ function displayItems(items)
     .forEach((item) => {
       $("#itemgrid").append(`
           <div class="grid item card" style="width: 18rem;">
-                  <a href="${'./item.html?item=' + item.id}"><img class="card-img-top" style="height:18rem;" src="${item.images[0]}" alt="${item.title}"></a>
+                  <a href="${'./item.html?item=' + item.id}"><img class="card-img-top" style="height:18rem; transition: transform 1s;" src="${item.images[0]}" alt="${item.title}"></a>
                   <div class="card-body">
                     <a href="${'./item.html?item=' + item.id}" class="itemName">${item.title}</a>
                     <p class="card-text">$${item.price.toFixed(2)}</p>
