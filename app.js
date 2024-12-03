@@ -49,9 +49,9 @@ fetch("./items.json").then((response) =>
     // get page number buttons
     for (i = Math.max(page - 3, 1); i < Math.min(page + 3, (Math.ceil((items.length) / 8))); i++)
     {
-      $("#page-number-buttons").append(`<button class='btn btn-light mx-1'>${i}</button>`);
+      $("#page-number-buttons").append(`<button class='btn btn-light mx-1' onclick='jumpToPage(${i})'>${i}</button>`);
     }
-    $("#page-number-buttons").append(`<button class='btn btn-light mx-1'>${Math.ceil((items.length) / 8)}</button>`);
+    $("#page-number-buttons").append(`<button class='btn btn-light mx-1' onclick='jumpToPage(${Math.ceil((items.length) / 8)})'>${Math.ceil((items.length) / 8)}</button>`);
     
 
 }));
@@ -112,6 +112,13 @@ function prevPage()
           `sort=${parameters.get('sort') ?? 'default'}&` +
           `page=${(parseInt(page) - 1)}`)
     }
+}
+
+function jumpToPage(location)
+{
+  window.location.replace(window.location.href.split('/')[0] + '?' +
+    `sort=${parameters.get('sort') ?? 'default'}&` +
+    `page=${location}`)
 }
 
 //create arrays in local storage
