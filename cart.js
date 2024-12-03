@@ -10,7 +10,8 @@ $(document).ready(function(){
 // retrive arrays from local storage
 const cartArray = JSON.parse(localStorage.getItem("cartArray")) || [];
 const wishlistArray = JSON.parse(localStorage.getItem("wishlistArray")) || [];
-let cartTotal = JSON.parse(localStorage.getItem("cartTotal"));
+let cartTotal = 0.0;
+let jsonItems;
 
 // Using the array from local storage,
 // dynamically populate the cart with items from the array
@@ -50,40 +51,47 @@ $(document).ready(function()
 
         `)
         console.log("currentItem.price", currentItem.price, "* element.quantity: ", element.quantity);
-        cartTotal += currentItem.price * element.quantity;
+        cartTotal += parseFloat(currentItem.price) * element.quantity;
         localStorage.setItem("cartTotal", JSON.stringify(cartTotal));
-    }));
+    })).then(()=> $("#cartTotal").html(cartTotal.toFixed(2)));
+        
 
 });});
 // add total to end
 $(document).ready(function()
 {
     console.log("cartTotal: ", cartTotal);
-    $(".cartTotalDisplay").append("<h3>Total: "+ cartTotal +"</h3>");
 });
 
 // function to remove an item from the cart
 function removeItemFromCart(event)
 {
 
-    let item = event.target;
-    console.log(item);
-    let itemId = item.getAttribute('data-index');
+    fetch("./items.json").then((response) =>
+        response.json().then((json) => {
+            let item = event.target;
+            console.log(item);
+            let itemId = item.getAttribute('data-index');
+        
+            //DEBUG
+            console.log(itemId);
+            // loop through all items in cartArray
+            cartArray.forEach((item, index) => {
+                if (item.identifier == itemId) {
+                    // remove it from the list
+                    cartArray.splice(index, 1);
+                    localStorage.setItem("cartArray", JSON.stringify(cartArray));
+                    // DEBUG
+                    console.log("cart array", cartArray);
+                    // remove element
+                    $(document).find(`[data-index='${itemId}']`).closest("#cartItem").remove();
+                }
+            })
+            $("#cartTotal").html(`Total: ${cartArray.reduce(
+                (count, current) => count += json.items[current.identifier].price, 0)}`);
+        } ))
 
-    //DEBUG
-    console.log(itemId);
-    // loop through all items in cartArray
-    cartArray.forEach((item, index) => {
-        if (item.identifier == itemId) {
-            // remove it from the list
-            cartArray.splice(index, 1);
-            localStorage.setItem("cartArray", JSON.stringify(cartArray));
-            // DEBUG
-            console.log("cart array", cartArray);
-            // remove element
-            $(document).find(`[data-index='${itemId}']`).closest("#cartItem").remove();
-        }
-    });
+    
 }
 // event listener
 $(document).ready(function(){
@@ -119,6 +127,12 @@ function decreaseQuantity(event){
     cartArray.forEach((item) => {
         console.log("test");
         if(item.identifier == itemId){
+        // if item quantity is 1
+        if (item.quantity == 1)
+        {
+            // return
+            return;
+        }
         // decrease quantity
         item.quantity--;
         localStorage.setItem("cartArray", JSON.stringify(cartArray));
