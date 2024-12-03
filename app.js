@@ -1,6 +1,8 @@
 const sortTypes = new Set(["default", "highPrice", "lowPrice", "lowRating", "highRating", "alphabetical"]);
 const parameters = new URLSearchParams(window.location.search);
-const page = parameters.get("page");
+const page = parameters.get("page") ?? 0;
+console.log("page: " + page);
+const itemsPerPage = 8;
 
 $(document).ready(function() {
   $('#site-navbar').load('./navbar.html');
@@ -75,17 +77,18 @@ function averageReview(reviews)
 
 function displayItems(items)
 {
-  items.forEach((item) => {
-    $("#itemgrid").append(`
-        <div class="grid item card" style="width: 18rem;">
-                <a href="${'./item.html?item=' + item.id}"><img class="card-img-top" style="height:18rem;" src="${item.images[0]}" alt="${item.title}"></a>
-                <div class="card-body">
-                  <a href="${'./item.html?item=' + item.id}" class="itemName">${item.title}</a>
-                  <p class="card-text">$${item.price.toFixed(2)}</p>
-                  <p class="card-text">${getStars(averageReview(item.reviews))}</p>
-                </div>
-            </div>
-        `)
+  items.slice(itemsPerPage * page, itemsPerPage * (page + 1))
+    .forEach((item) => {
+      $("#itemgrid").append(`
+          <div class="grid item card" style="width: 18rem;">
+                  <a href="${'./item.html?item=' + item.id}"><img class="card-img-top" style="height:18rem;" src="${item.images[0]}" alt="${item.title}"></a>
+                  <div class="card-body">
+                    <a href="${'./item.html?item=' + item.id}" class="itemName">${item.title}</a>
+                    <p class="card-text">$${item.price.toFixed(2)}</p>
+                    <p class="card-text">${getStars(averageReview(item.reviews))}</p>
+                  </div>
+              </div>
+          `)
 })
 }
 
