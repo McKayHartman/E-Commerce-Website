@@ -78,6 +78,12 @@
           "username": "Great Wizard AL",
           "review": "Mixed this into my elixir. Good stuff.",
           "score": 4.5
+        },
+        {
+          "username": "The Potion Seller",
+          "review": "You sell WEAK POTIONS. MY POTIONS ARE MUCH STRONGER",
+          "score": 1
+
         }
       ]
     },
