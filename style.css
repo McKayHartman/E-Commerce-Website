@@ -28,14 +28,16 @@ body{
 
 .navbar-custom{
     background-color: var(--darkPurple);
-    color: var(--pink)
+    color: var(--pink);
 }
-
 .navbar-custom .navbar-brand,
 .navbar-custom .nav-link{
     color: var(--pink);
 }
 .navbar-brand{
+    font-family: 'WizardFont';
+}
+.nav-link{
     font-family: 'WizardFont';
 }
 .grid-container{
