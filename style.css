@@ -23,7 +23,55 @@ body{
     background-color: var(--bgColor);
     font-family: 'WizardFont';
     color: var(--darkPurple);
-    
+    cursor: url(sword/frame0.png), auto ;
+    animation: cursor 800ms infinite;
+}
+
+@keyframes cursor{
+    0% {cursor: url(cursors/sword/frame0.png), auto ;}
+    20% {cursor: url(cursors/sword/frame1.png), auto ;}
+    40% {cursor: url(cursors/sword/frame2.png), auto ;}
+    60% {cursor: url(cursors/sword/frame3.png), auto ;}
+    80% {cursor: url(cursors/sword/frame4.png), auto ;}
+    100% {cursor: url(cursors/sword/frame5.png), auto ;}
+}
+
+@keyframes skull{
+    0% {cursor: url(cursors/skull/frame1.png), auto ;}
+    20% {cursor: url(cursors/skull/frame2.png), auto ;}
+    40% {cursor: url(cursors/skull/frame3.png), auto ;}
+    60% {cursor: url(cursors/skull/frame4.png), auto ;}
+    80% {cursor: url(cursors/skull/frame5.png), auto ;}
+    100% {cursor: url(cursors/skull/frame6.png), auto ;}
+}
+
+@keyframes electric{
+    0% {cursor: url(cursors/electric/frame.png), auto ;}
+    25% {cursor: url(cursors/electric/frame2.png), auto ;}
+    75% {cursor: url(cursors/electric/frame3.png), auto ;}
+    100% {cursor: url(cursors/electric/frame4.png), auto ;}
+}
+
+
+a:hover{
+    cursor: url(cursors/sword/frame0.png), auto ;
+    animation: cursor 800ms infinite;
+}
+
+button:hover{
+    cursor: url(cursors/sword/frame0.png), auto ;
+    animation: cursor 800ms infinite;
+}
+
+select:hover{
+    cursor: url(cursors/sword/frame0.png), auto ;
+    animation: cursor 800ms infinite;
+}
+
+.buy-button:hover{
+    cursor: url(cursors/electric/frame.png), auto ;
+    animation: electric 350ms infinite;
+
 }
 
 .navbar-custom{
@@ -58,6 +106,7 @@ body{
 
 .btn-custom{
     background-color: var(--pink)!important;
+    font-family: 'WizardFont';
 }
 
 .itemName{
@@ -67,6 +116,10 @@ body{
 }
 .itemName:hover{
     color: var(--bgColor);
+}
+
+.cartSection{
+    font-family: 'Metamorphous';
 }
 
 /* grid functionality */
@@ -96,10 +149,10 @@ body{
     display: flex;
     flex-direction: column;
 
-    background-color: var(--bgColor);
+    background-color: var(--darkPurple);
     border: solid;
     border-color: var(--darkPurple);
-    border-width: 5px;
+    border-radius: 5px;
 }
 
 .itemName{
@@ -117,10 +170,12 @@ body{
 }
 
 #cartItem{
-    background-color: var(--bgColor);
+    background-color: var(--darkPurple);
+    color: var(--pink);
     display: grid;
 
-    border: solid;
+    border-bottom: 1px solid var(--lightPurple);
+    margin-top: 4px;
     column-gap: 10px;
     grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
@@ -171,6 +226,37 @@ body{
     place-items: center;
 }
 
+.normal-bg{
+    background-color: var(--bgColor) !important;
+}
+
+.cart-title{
+    font-family: 'WizardFont';
+    color: var(--darkPurple);
+    font-size: 80px;
+}
+
+.cart-item-image{
+    width: 250px;
+    height: 100px;
+    border-radius: 1%;
+}
+
+.cart-total-container{
+    font-family: 'WizardFont';
+    background-color: var(--darkPurple);
+    color: var(--pink);
+    vertical-align: top;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 64px;
+    border-radius: 2px;
+}
+
+.checkout-button{
+    color: var(--darkPurple) !important;
+}
 
 .infoInput{
     background-color:  var(--bgColor);

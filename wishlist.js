@@ -36,8 +36,8 @@ $(document).ready(function()
                 <h4 id="itemPrice">$${currentItem.price}</h4>
             </div>
             <div id="itemActions" class="cartSection">
-                <button onclick="removeItemFromWishlist(event)" class="itemDeleteButton btn-custom" data-index="${currentItem.id}" type="button">Delete</button>
-                <button onclick="addItemToCart(event)" class="addItemToCartButton btn-custom" data-index="${currentItem.id}" type="button">Add to Cart</button>
+                <button onclick="removeItemFromWishlist(event)" class="itemDeleteButton btn btn-custom" data-index="${currentItem.id}" style="cursor: url(cursors/skull/frame1.png), auto; animation: skull 800ms infinite;" type="button">Delete</button>
+                <button onclick="addItemToCart(event)" class="addItemToCartButton btn btn-custom buy-button" data-index="${currentItem.id}" type="button">Add to Cart</button>
             </div>
         </div>
 
