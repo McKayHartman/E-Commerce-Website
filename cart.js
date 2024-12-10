@@ -35,17 +35,25 @@ $(document).ready(function()
 
         <div id="cartItem">
             <div id="smallItemDisplay" class="cartSection">
-                <img id="thumbnailImage" src="${currentItem.images}">
+                <img class="cart-item-image" src="${currentItem.images}">
             </div>
             <div id="itemInfo" class="cartSection">
                 <h3 id="itemTitle">${currentItem.title}</h3>
                 <h4 id="itemPrice">$${currentItem.price}</h4>
                 <p id="itemQuantity">Quantity: ${element.quantity}</p>
             </div>
-            <div id="itemActions" class="cartSection">
-                <button onclick="removeItemFromCart(event)" class="itemDeleteButton btn-custom" data-index="${currentItem.id}" type="button">Delete</button>
-                <button onclick="increaseQuantity(event)" class="itemIncreaseQuantityButton btn-custom" data-index="${currentItem.id}" type="button">+1</button>
-                <button onclick="decreaseQuantity(event)" class="itemDecreaseQuanitityButton btn-custom" data-index="${currentItem.id}" type="button">-1</button>
+            <div class="d-flex">
+                <div id="itemActions" class="cartSection col">
+                    <button onclick="removeItemFromCart(event)" class="itemDeleteButton btn btn-custom w-100 mb-2" style="cursor: url(cursors/skull/frame1.png), auto; animation: skull 800ms infinite;" data-index="${currentItem.id}" type="button">Delete</button>
+                    <div class="w-100"></div>
+                    <div class="d-flex">
+                        <button onclick="increaseQuantity(event)" class="itemIncreaseQuantityButton btn btn-custom flex-grow-1 mr-1 buy-button" data-index="${currentItem.id}" type="button">+1</button>
+                        <button onclick="decreaseQuantity(event)" class="itemDecreaseQuanitityButton btn btn-custom flex-grow-1 ml-1" data-index="${currentItem.id}" style="cursor: url(cursors/skull/frame1.png), auto; animation: skull 800ms infinite;" type="button">-1</button>
+                    </div>
+                </div>
+                <div class="col cartSection">
+                    <h4>${'$' + (currentItem.price * element.quantity).toFixed(2)}</h4>
+                </div>
             </div>
         </div>
 
